@@ -129,24 +129,25 @@ Imprimís el efecto del ataque ...(pokemon1 + " le hace " + danho + " puntos de 
                     if (decision2.equals("1")) {
                         String respuesta= ataques1();
                         if (respuesta.equals("1")) {
-                            int dano=(danhoGolpe1+defensa2);
-                            if (dano==0){
+                            int dano=(danhoGolpe1-defensa2);
+                            if (dano<=0){
                                 dano=1;
                             }
                             vida2 = vida2 -dano;
-                            System.out.println(pokemon1+" le hace "+danhoGolpe1+" puntos de daño a "+pokemon2);
+                            turno1=false;
+                            System.out.println(pokemon1+" le hace "+dano+" puntos de daño a "+pokemon2);
                             System.out.println("Ahora "+pokemon2+" tiene "+vida2+" puntos de vida");
                         }
                         else if (respuesta.equals("2")) {
                             if (mp1 > mpGolpeEspecial) {
-                                int dano=(danhoEspecial+defensa2);
-                                if (dano==0){
+                                int dano=(danhoEspecial-defensa2);
+                                if (dano<=0){
                                     dano=1;
                                 }
                                 vida2 = vida2 -dano;
                                 mp1 = mp1 - mpGolpeEspecial;
                                 turno1 = false;
-                                System.out.println(pokemon1+" le hace "+danhoEspecial+" puntos de daño a "+pokemon2);
+                                System.out.println(pokemon1+" le hace "+dano+" puntos de daño a "+pokemon2);
                                 System.out.println("Ahora "+pokemon2+" tiene "+vida2+" puntos de vida");
                             }
                             else{
@@ -166,6 +167,7 @@ Imprimís el efecto del ataque ...(pokemon1 + " le hace " + danho + " puntos de 
                             if (pocionesPequenas>0) {
                                 pocionesPequenas = pocionesPequenas - 1;
                                 vida1=vida1+20;
+                                System.out.println(pokemon1+" se ha curado 20 hp.");
                             }
                             else {
                                 System.out.println("No te quedan");
@@ -176,6 +178,7 @@ Imprimís el efecto del ataque ...(pokemon1 + " le hace " + danho + " puntos de 
                             if (pocionesGrandes>0) {
                                 pocionesGrandes = pocionesGrandes - 1;
                                 vida1=vida1+50;
+                                System.out.println(pokemon1+" se ha curado 50 hp.");
                             }
                             else{
                                 System.out.println("No te quedan.");
@@ -215,25 +218,25 @@ Imprimís el efecto del ataque ...(pokemon1 + " le hace " + danho + " puntos de 
                     if (decision2.equals("1")) {
                         String respuesta= ataques2();
                         if (respuesta.equals("1")) {
-                            int dano=(danhoGolpe2+defensa1);
-                            if (dano==0){
+                            int dano=(danhoGolpe2-defensa1);
+                            if (dano<=0){
                                 dano=1;
                             }
                             vida1 = vida1 -dano;
                             turno1=true;
-                            System.out.println(pokemon2+" le hace "+danhoGolpe2+" puntos de daño a "+pokemon1);
+                            System.out.println(pokemon2+" le hace "+dano+" puntos de daño a "+pokemon1);
                             System.out.println("Ahora "+pokemon1+" tiene "+vida1+" puntos de vida");
                         }
                         else if (respuesta.equals("2")) {
                             if (mp2 > mpGolpeEspecial2) {
-                                int dano=(danhoEspecial2+defensa1);
-                                if (dano==0){
+                                int dano=(danhoEspecial2-defensa1);
+                                if (dano<=0){
                                     dano=1;
                                 }
                                 vida1 = vida1 -dano;
                                 mp2 = mp2 - mpGolpeEspecial2;
                                 turno1 = true;
-                                System.out.println(pokemon2+" le hace "+danhoEspecial2+" puntos de daño a "+pokemon1);
+                                System.out.println(pokemon2+" le hace "+dano+" puntos de daño a "+pokemon1);
                                 System.out.println("Ahora "+pokemon1+" tiene "+vida1+" puntos de vida");
                             }
                             else{
@@ -253,6 +256,7 @@ Imprimís el efecto del ataque ...(pokemon1 + " le hace " + danho + " puntos de 
                             if (pocionesPequenas2>0) {
                                 pocionesPequenas2 = pocionesPequenas2 - 1;
                                 vida2=vida2+20;
+                                System.out.println(pokemon2+" se ha curado 20 hp.");
                             }
                             else {
                                 System.out.println("No te quedan");
@@ -263,6 +267,7 @@ Imprimís el efecto del ataque ...(pokemon1 + " le hace " + danho + " puntos de 
                             if (pocionesGrandes2>0) {
                                 pocionesGrandes2 = pocionesGrandes2 - 1;
                                 vida2=vida2+50;
+                                System.out.println(pokemon2+" se ha curado 50 hp.");
                             }
                             else {
                                 System.out.println("No te quedan");
